@@ -53,3 +53,30 @@ lista_b.extend(lista_a);
 print(lista_b)
 
 print(lista_a)
+
+
+'''
+ loops em listas
+''' 
+lista1 = ['Maria', 'Helena', 'Luiz']
+lista2 = ['a', 'b', "c" ]
+
+i = range(len(lista2))
+
+for index in i:
+    print(f"{lista2[index]} - {index}")
+
+
+"""
+Introdução ao empacotamento e desempacotamento
+"""
+_, _, nome, *resto = ['Maria', 'Helena', 'Luiz']
+print(nome, resto,sep=';')
+
+
+"""
+enumerate - enumera iteráveis (índices)
+"""
+
+for index, nome in enumerate(lista1):
+    print (index, nome, sep='-')

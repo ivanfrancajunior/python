@@ -36,3 +36,15 @@ for nome in ['Maria', 'Joana', 'Luiz']:
     print(falar_bom_dia(nome))
     print(falar_boa_noite(nome))
 
+def multiply_by(value):
+    
+    def multiply(number):
+        return number * value
+    return multiply
+
+dobble = multiply_by(2)
+triple = multiply_by(3)
+quadruple = multiply_by(4)
+print(dobble(3))
+print(triple(3))
+print(quadruple(3))

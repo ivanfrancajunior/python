@@ -49,13 +49,11 @@ pessoa = {
 '''
 pessoa = {}
 
-##
-##
-
 chave = 'nome'
 
 pessoa[chave] = 'Luiz Otávio'
 pessoa['sobrenome'] = 'Miranda'
+pessoa
 
 
 print(pessoa[chave])
@@ -73,3 +71,4 @@ else:
     print(pessoa['sobrenome'])
 
 # print('ISSO Não vai')
+    

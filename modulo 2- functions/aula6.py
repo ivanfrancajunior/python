@@ -133,3 +133,4 @@ print('Você acertou', qtd_acertos)
 print('de', len(perguntas), 'perguntas.')
 
 '''
+

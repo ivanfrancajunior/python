@@ -8,16 +8,16 @@ showName('Aderbal')
 
 
 
-
-def sum (a, b, c=None):
-    if c:
+# valores padrao com argumentos nomeados
+def somar (a, b, c=None):
+    if c is not None:
         print (f"{a=} {b=} {c=}", a + b + c )
     else:
         print (f"{a=}  {b=}", a + b  )
 
-sum(1,1,1)
+somar(1,1,1)
 
-
+# retorno de funçoes
 def mostrarStringGerada ( ):
 
     def string():
@@ -36,11 +36,11 @@ O escopo local é o escopo onde apenas nomes do mesmo local
 podem ser alcançados.
 """
 
-x = 1
+x = 'valor global de x'
 
-
+# escopo de função
 def escopo():
-    global x
+    global x # n  fazer isso ok, má pratica porém existe
     x = 10
 
     def outra_funcao():
@@ -61,19 +61,21 @@ escopo()
 args - Argumentos não nomeados
 * - *args (empacotamento e desempacotamento)
 """
-# Lembre-te de desempacotamento
-# x, y, *resto = 1, 2, 3, 4
-# print(x, y, resto)
 
 
-# def soma(x, y):
-#     return x + y
+# args - Argumentos não nomeados
+x, y, *rest = 1, 2, 3, 4
+print(x, y, rest)
+
+
+def soma(x, y):
+    return x + y
 
 def soma(*args):
-    total = 0
+    acc_total = 0
     for numero in args:
-        total += numero
-    return total
+        acc_total += numero
+    return acc_total
 
 
 soma_1_2_3 = soma(1, 2, 3)
@@ -82,9 +84,12 @@ soma_1_2_3 = soma(1, 2, 3)
 soma_4_5_6 = soma(4, 5, 6)
 # print(soma_4_5_6)
 
+
+# sum() built-in function
 numeros = 1, 2, 3, 4, 5, 6, 7, 78, 10
 outra_soma = soma(*numeros)
 print(outra_soma)
 
+print(type(numeros))
+
 print(sum(numeros))
-# print(*numeros)

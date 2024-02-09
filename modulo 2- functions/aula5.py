@@ -17,6 +17,7 @@ import copy
 car = {
     "name":'Uninho de Firma',
     "label":"Fiat",
+    "year":"chaves repetidas retornam o ultimo valor",
     "year":"96",
     "color":"red",
     "kms":"170",
@@ -30,10 +31,21 @@ print(car.values())
 car_tuple = car.items()
 print(car_tuple, type(car_tuple))
 
+
 # ATENÇÃO COM SHALOW COPY: dados mutaveis (listas e dicts ) usando 'copy' ainda mantêm a mesma ref. de memória.
 
+# mesmo lugar em memória
+dict1 = {'key1': 'value1', 'key2': 'value2'}
+dict2 = dict1
+dict2['key1'] = 'other value'
+
+# copia (swallow copy)
+dict3 = dict1.copy()
+dict3['key1'] = 'one more value'
+print(dict1['key1'])
 
 
+#------------ outro exemplo --------------
 
 car_2 = copy.copy(car)
 print(car, car_2)
@@ -43,9 +55,30 @@ print(car["owners"][0])
 
 # no caso de deep copy usar o metodo copy.deepcopy, onde os subniveis do dicionário serão atingidos.
 
-car_2_turbo = copy.deepcopy(car)
+car_2_muito_poderoso_TURBO = copy.deepcopy(car)
 
 print(car["owners"][0])
-car_2_turbo['owners'][0] = 'maria da feira'
-print(car_2_turbo['owners'][0])
+car_2_muito_poderoso_TURBO['owners'][0] = 'maria da feira'
+print(car_2_muito_poderoso_TURBO['owners'][0])
+
+# get() - obtem uma chave
+ficougrande = car_2_muito_poderoso_TURBO.get(['owners'][0])
+
+print(ficougrande)
+
+#pop() - apaga um item com a chave especificada (del)
+
+ultimos_donos = car_2_muito_poderoso_TURBO.pop(['owners'][0])
+
+print(ultimos_donos)
+print(car_2_muito_poderoso_TURBO)
+
+# popitem() - apaga o último item adicionado
+car_2_muito_poderoso_TURBO.popitem() #f kms
+print(car_2_muito_poderoso_TURBO)
+
+#update() - Atualiza um dicionário com outro
+
+car_2_muito_poderoso_TURBO.update(car)
+print(car_2_muito_poderoso_TURBO)
 

@@ -29,22 +29,27 @@ def criar_saudacao(saudacao):
     return saudar
 
 
-falar_bom_dia = criar_saudacao('Bom dia')
-falar_boa_noite = criar_saudacao('Boa noite')
+bom_dia = criar_saudacao('Bom dia')
+boa_noite = criar_saudacao('Boa noite')
 
 for nome in ['Maria', 'Joana', 'Luiz']:
-    print(falar_bom_dia(nome))
-    print(falar_boa_noite(nome))
+    print(bom_dia(nome))
+    print(boa_noite(nome))
 
+
+'''
+Exercicio:
+crie uma função que duplica, triplica e quadruplica um número 
+''' 
 def multiply_by(value):
     
-    def multiply(number):
-        return number * value
+    def multiply(base):
+        return base * value
     return multiply
 
 dobble = multiply_by(2)
 triple = multiply_by(3)
 quadruple = multiply_by(4)
-print(dobble(3))
-print(triple(3))
-print(quadruple(3))
+print(dobble(10))
+print(triple(10))
+print(quadruple(10))

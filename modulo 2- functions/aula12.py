@@ -2,7 +2,7 @@
 # List comprehension é uma forma rápida para criar listas
 # a partir de iteráveis.
 # print(list(range(10)))
-# em https://youtu.be/1YbTDczvqco
+# em https://youtu.be/1YbTDczvqco 
 
 '''List comprehension por baixo dos panos 
 
@@ -22,7 +22,7 @@ print(lista_dobrada)
 # map e filter com list comprehension
 
 # map
-valores_maiores_que_cinco = [numero for numero in range(1, 31) if numero % 5 == 0]
+valores_maiores_que_cinco = [numero for numero in range(1, 31)]
 
 print(valores_maiores_que_cinco)
 

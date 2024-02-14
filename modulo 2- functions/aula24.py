@@ -23,3 +23,8 @@ camisetas = [
 print_iter(combinations(pessoas, 2))
 print_iter(permutations(pessoas, 2))
 print_iter(product(*camisetas))
+
+#group by
+#map
+#filter
+#reduce

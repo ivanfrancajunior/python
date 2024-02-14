@@ -38,3 +38,4 @@ lista_de_dicionarios = [
 list_with_att_values =[{'nome': item['nome'], 'price':round(item['valor']*1.1,2) } for item in lista_de_dicionarios]
 
 print(list_with_att_values)
+

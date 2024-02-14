@@ -35,9 +35,9 @@ print(valores_multiplos_de_tres)
 produtos = [ {'nome': 'p1', 'preco': 50}, {'nome': 'p2', 'preco': 30} ]
 
 
-novos_produtos = [ {**produto,'nome': produto['nome'] + ' promocao', 'preco': round(produto['preco'] * 0.90)} for produto in produtos ]
+novos_produtos = [ {**produto,'nome': {f"{produto['nome']} na promocao"}, 'preco': round(produto['preco'] * 0.90)} for produto in produtos ]
 
-print(novos_produtos)
+print('aqui -> ',novos_produtos)
 
 array_dicts = [
     {'chave1': 'valor1', 'chave2': 'valor2'},

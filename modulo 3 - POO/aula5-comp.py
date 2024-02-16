@@ -44,3 +44,4 @@ del cliente1
 
 print(endereco_externo.rua, endereco_externo.numero)
 print('######################## AQUI TERMINA MEU CÓDIGO')
+

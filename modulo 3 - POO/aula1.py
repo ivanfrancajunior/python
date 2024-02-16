@@ -24,3 +24,14 @@ p1.greeting()
 
 
 
+# Atributos 
+class Car: 
+    ano_atual = 2024
+
+    def __init__(self, marca,modelo) -> None:
+        self.modelo = modelo
+        self.marca = marca
+
+uninho_de_firma = Car("Fiat", 'Uno')
+
+print(f'{uninho_de_firma.modelo} {uninho_de_firma.marca}')

@@ -213,6 +213,7 @@ fone_de_ouvido.desconectar_bluetooth("Smartphone")
 '''
 
 from abc import ABC, abstractmethod
+from typing import Any
 
 class AbstractBluetoothMixin(ABC):
     @abstractmethod
@@ -329,6 +330,36 @@ loc = Geolocalizacao(335353.75, 4112212122.1)
 print(repr(loc))  # Chama __repr__
 print(str(loc))   # Chama __str__
 
+''' TODO: __new__ '''
+
+
+'''  __call__ 
+
+    O método __call__ permite que objetos de uma classe se comportem como funções, possibilitando a execução de código específico quando são chamados. Isso oferece uma maneira poderosa de adicionar comportamentos dinâmicos a objetos em Python.
+    
+    ** Faz uma instância de uma classe ser callable
+'''
+
+class Call:
+    def __init__(self, phone) -> None:
+        self.phone = phone
+
+call = Call(5551234)
+
+# call() -> ❌ TypeError: 'CallMe' object is not callable.
+
+
+class CallMe:
+    def __init__(self, phone) -> None:
+        self.phone = phone
+
+    def __call__(self) -> None:
+        print(f'Chamando {self.phone}')
+
+call911 = CallMe(911)
+call911()
+
+''' TODO: context manegers com classes '''
 
 '''
     Funções declaradoras com classes: 
@@ -369,3 +400,85 @@ terra = Planeta('Terra')
 
 print(amr)
 print(terra)
+
+
+''' Classes Decoradoras 
+
+    Uma classe decoradora em Python oferece uma maneira flexível de adicionar funcionalidades ou modificar o comportamento de outras classes, encapsulando-as em uma nova classe decoradora. Isso promove a reutilização de código e a modularidade, facilitando a extensão de classes de forma organizada e elegante.
+'''
+
+class Multiplicar:
+    def __init__(self,multiplicador:int) -> None:
+        self.multiplicador = multiplicador
+
+
+    def __call__(self, fn):
+        
+        def handle(*args:int|float,**kwargs:int | float) -> int|float:
+            
+            resultado = fn(*args,**kwargs)
+
+            return resultado * self.multiplicador
+        
+        return handle
+
+@Multiplicar(2)
+def soma(x,y):
+    return x + y
+
+
+oito = soma(2,2)
+print(oito)
+
+
+''' Metaclasses'''
+
+
+
+''' DocStrings
+
+    Docstrings são cadeias de caracteres (strings) que fornecem documentação sobre o propósito, funcionamento e uso de funções, métodos, classes ou módulos em Python. Elas são colocadas no início de um bloco de código e são delimitadas por três aspas duplas (""").
+
+    Resumidamente, as docstrings são usadas para documentar o código, fornecendo informações úteis para quem estiver lendo ou utilizando o código. Elas são uma parte importante da prática de programação Python, pois ajudam a entender rapidamente o propósito e o uso de diferentes partes do código.
+'''
+
+class Retangulo:
+    """
+    Classe para representar um retângulo.
+
+    Atributos:
+    largura (float): Largura do retângulo.
+    altura (float): Altura do retângulo.
+    """
+
+    def __init__(self, largura, altura):
+        """
+        Inicializa um objeto Retangulo com a largura e altura especificadas.
+
+        Parâmetros:
+        largura (float): A largura do retângulo.
+        altura (float): A altura do retângulo.
+        """
+        self.largura = largura
+        self.altura = altura
+
+    def calcular_area(self):
+        """
+        Calcula a área do retângulo.
+
+        Retorna:
+        float: A área do retângulo.
+        """
+        return self.largura * self.altura
+
+    def calcular_perimetro(self):
+        """
+        Calcula o perímetro do retângulo.
+
+        Retorna:
+        float: O perímetro do retângulo.
+        """
+        return 2 * (self.largura + self.altura)
+
+
+'''Enuns'''

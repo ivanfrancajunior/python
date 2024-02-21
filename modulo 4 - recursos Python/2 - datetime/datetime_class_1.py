@@ -16,6 +16,7 @@ from pytz import timezone
 
 
 
+
 # dia_atual = datetime(2024,2,20,18,2,00,tzinfo=timezone('Asia/Tokyo'))
 # print('dia_atual ->',dia_atual)
 

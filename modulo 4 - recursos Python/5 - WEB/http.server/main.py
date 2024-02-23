@@ -74,7 +74,7 @@ def write_in_md_file(list_of_title:list[str]):
 
             list_of_books.write(f"#{ i } - {title} \n")   
 
-        i+= 1
+    i+= 1
     print("done!")   
 
 write_in_md_file(second)

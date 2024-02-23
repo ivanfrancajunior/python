@@ -22,13 +22,29 @@ cursor.execute(
 )
 connection.commit()
 
-# registrandfo valores [ PIOR FORMA POSSIVEL ] ❌
+# boa pratica [evitando esq injection]
+sql_comand = (f'INSERT INTO {TABLA_NAME}'
+'(name,weight) VALUES (:nome,:peso)')
 
-cursor.execute(f'INSERT INTO {TABLA_NAME}'
-' (id,name,weight) VALUES (NULL,"Apenas Jota", 60)'
-)
+# cursor.execute(sql_comand,[None,'Jota Apenas',9])
+
+#listas
+# cursor.executemany(sql_comand,[[None,'Bebel',7],[None,'Gustin',19],[None,'Lineuzinho',99] ])
+
+
+#dicionarios 
+cursor.executemany(sql_comand,[
+    {'nome':'Bebel','peso':7},
+    {'nome':'Gustin','peso':6},
+    {'nome':'Lineuzinho','peso':71},
+    
+    ])
+
+
+
+
+
 connection.commit()
-
 
 cursor.close()
 connection.close()

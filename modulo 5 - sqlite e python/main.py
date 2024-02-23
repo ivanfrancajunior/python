@@ -6,14 +6,18 @@ from pathlib import Path
 ROOT_DIR = Path(__file__).parent
 DB_NAME = 'mydb.sqlite3'
 DB_FILE = ROOT_DIR / DB_NAME
-TABLA_NAME = 'customers'
+TABLE_NAME = 'customers'
 connection = sqlite3.connect(DB_FILE)
 cursor = connection.cursor()
 
-# criando tabela 
-
 cursor.execute(
-    f'CREATE TABLE IF NOT EXISTS {TABLA_NAME}'
+    f'DELETE FROM sqlite_sequence WHERE name="{TABLE_NAME}"'
+)
+
+
+# criando tabela 
+cursor.execute(
+    f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
     '('
     'id INTEGER PRIMARY KEY AUTOINCREMENT,'
     'name TEXT,'
@@ -23,7 +27,7 @@ cursor.execute(
 connection.commit()
 
 # boa pratica [evitando esq injection]
-sql_comand = (f'INSERT INTO {TABLA_NAME}'
+sql_comand = (f'INSERT INTO {TABLE_NAME}'
 '(name,weight) VALUES (:nome,:peso)')
 
 # cursor.execute(sql_comand,[None,'Jota Apenas',9])
@@ -40,11 +44,16 @@ cursor.executemany(sql_comand,[
     
     ])
 
+connection.commit()
 
-
-
-
+cursor.execute(
+    f'DELETE FROM {TABLE_NAME} '
+    'WHERE id = 1'
+)
 connection.commit()
 
 cursor.close()
 connection.close()
+
+
+

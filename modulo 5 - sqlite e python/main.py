@@ -52,6 +52,13 @@ cursor.execute(
 )
 connection.commit()
 
+cursor.execute(
+        f'UPDATE {TABLE_NAME} '
+        'SET name="QUALQUER", weight=67.89 '
+        'WHERE id = 5'
+    )
+connection.commit()
+
 cursor.close()
 connection.close()
 

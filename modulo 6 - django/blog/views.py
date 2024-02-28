@@ -1,6 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
-# Create your views here.
 def blog(request):
-    return render(request=request,template_name= 'blog/home.html')
+    return render(request,'blog/index.html')

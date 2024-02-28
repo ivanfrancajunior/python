@@ -6,3 +6,4 @@ venv
 módulo 5  - TDD
 cc50-ifood
 .pytest_cache
+mysql_container
